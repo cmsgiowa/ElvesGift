@@ -16,12 +16,12 @@ bool compareSum(list<int> l1, list<int> l2)
 int main()
 {
     vector<list<int> > vecListGift;
-    std::fstream newfile;
-    newfile.open("input.txt",ios::in); 
-    if (newfile.is_open()){   
+    std::fstream inputfile;
+    inputfile.open("input.txt",ios::in); 
+    if (inputfile.is_open()){   
       string star;
       list<int> starList;
-      while(getline(newfile, star)){ 
+      while(getline(inputfile, star)){ 
         if (star.empty()){
             vecListGift.push_back(starList);
             starList.clear();
@@ -29,7 +29,7 @@ int main()
             starList.push_back(stoi(star));
          }
       }
-      newfile.close();
+      inputfile.close();
       std::sort(vecListGift.begin(), vecListGift.end(), compareSum);
       int largestGift = std::accumulate(std::begin(*(vecListGift.end() - 3)), std::end(*(vecListGift.end() - 3)), 0);
       largestGift += std::accumulate(std::begin(*(vecListGift.end() - 2)), std::end(*(vecListGift.end() - 2)), 0);
