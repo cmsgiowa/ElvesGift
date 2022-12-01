@@ -31,7 +31,9 @@ int main()
       }
       newfile.close();
       std::sort(vecListGift.begin(), vecListGift.end(), compareSum);
-      int largestGift = std::accumulate(std::begin(*(vecListGift.end() - 1)), std::end(*(vecListGift.end() - 1)), 0);
+      int largestGift = std::accumulate(std::begin(*(vecListGift.end() - 3)), std::end(*(vecListGift.end() - 3)), 0);
+      largestGift += std::accumulate(std::begin(*(vecListGift.end() - 2)), std::end(*(vecListGift.end() - 2)), 0);
+      largestGift += std::accumulate(std::begin(*(vecListGift.end() - 1)), std::end(*(vecListGift.end() - 1)), 0);
   
       cout << largestGift << endl; 
    }
